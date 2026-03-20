@@ -1,22 +1,5 @@
-'use client';
-
-import { supabase } from './utils/supabase';
-import { useState, useEffect } from 'react';
-
 export default function Home() {
-  const [todos, setTodos] = useState<any[]>([]);
-
-  useEffect(() => {
-    async function getTodos() {
-      const { data: todos } = await supabase.from('todos').select();
-
-      if (todos) {
-        setTodos(todos);
-      }
-    }
-
-    getTodos();
-  }, []);
+  const todos: any[] = [];
 
   return (
     <main className="p-4 md:p-8 bg-gray-50 min-h-screen">
